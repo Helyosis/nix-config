@@ -11,6 +11,7 @@
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   outputs = inputs:
@@ -18,6 +19,7 @@
       local-overlays = import ./overlays;
       overlays = with inputs;
         [
+          (import emacs-overlay)
           local-overlays
         ];
       lib = import ./lib { inherit inputs overlays; };
