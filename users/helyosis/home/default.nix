@@ -3,6 +3,7 @@
   imports = [
     ./doom-emacs
     ./custom-fonts
+    ./gaming
     inputs.homeage.homeManagerModules.homeage
   ];
 
