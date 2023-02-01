@@ -36,5 +36,6 @@
     firefox
     webcord
     age
+    nextcloud-client
   ];
 }
