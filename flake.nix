@@ -12,6 +12,7 @@
 
     flake-utils.url = "github:numtide/flake-utils";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    homeage.url = "github:jordanisaacs/homeage"; # Secrets managements
   };
 
   outputs = inputs:
