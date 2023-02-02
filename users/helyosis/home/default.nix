@@ -38,5 +38,9 @@
     webcord
     age
     nextcloud-client
+    python310
+    rust-analyzer
+    rustc
+    cargo
   ];
 }
