@@ -38,7 +38,8 @@
         {
           nixpkgs = {
             inherit overlays;
-            config.allowUnfree = true;
+            # See: https://github.com/nix-community/home-manager/issues/2942
+            config.allowUnfreePredicate = (pkg: true);
           };
           programs = {
             home-manager.enable = true;
