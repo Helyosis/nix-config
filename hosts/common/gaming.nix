@@ -1,4 +1,30 @@
 { config, pkgs, lib, ... }: {
-  # We use flatpak for steam because it is way too buggy else.
-  services.flatpak.enable = true;
+  #hax for steam to launch
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      libva
+      pipewire
+    ];
+    setLdLibraryPath = true;
+    extraPackages = with pkgs; [
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      rocm-runtime
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    (steam.override {
+      withPrimus = true;
+      withJava = true;
+      extraPkgs = pkgs: [ bumblebee glxinfo ];
+      })
+    xwayland
+  ];
 }
