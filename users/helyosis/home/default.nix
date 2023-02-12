@@ -42,5 +42,11 @@
     rust-analyzer
     rustc
     cargo
+    jdk17
+    maven
+    lombok
+    javaPackages.junit_4_12
+    jetbrains.idea-ultimate
+    qmk
   ];
 }

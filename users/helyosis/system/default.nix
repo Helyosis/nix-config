@@ -9,4 +9,6 @@
     description = "Helyosis";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  services.udev.extraRules = builtins.readFile ./50-qmk.rules;
 }

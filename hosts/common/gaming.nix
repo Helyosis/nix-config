@@ -20,11 +20,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (steam.override {
-      withPrimus = true;
-      withJava = true;
-      extraPkgs = pkgs: [ bumblebee glxinfo ];
-      })
     xwayland
   ];
 }
