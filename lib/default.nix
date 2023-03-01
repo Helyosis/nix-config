@@ -8,6 +8,7 @@
         inherit inputs system hostname;
       };
       modules = [
+        inputs.lanzaboote.nixosModules.lanzaboote
         ../hosts/${hostname}
         {
           networking.hostName = hostname;

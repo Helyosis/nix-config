@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   imports = [
     ./doom-emacs
@@ -43,10 +43,13 @@
     rustc
     cargo
     jdk17
+    onlyoffice-bin
     maven
     lombok
     javaPackages.junit_4_12
     jetbrains.idea-ultimate
     qmk
+    libclang
+    lutris
   ];
 }

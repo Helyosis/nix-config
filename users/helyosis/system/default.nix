@@ -7,7 +7,7 @@
     isNormalUser = true;
     home = "/home/helyosis";
     description = "Helyosis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" ];
   };
 
   services.udev.extraRules = builtins.readFile ./50-qmk.rules;

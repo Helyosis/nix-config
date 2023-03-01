@@ -13,6 +13,12 @@
     flake-utils.url = "github:numtide/flake-utils";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     homeage.url = "github:jordanisaacs/homeage"; # Secrets managements
+
+    # Secure boot
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs"; # Optional but recommended to limit the size of your system closure.
+    };
   };
 
   outputs = inputs:
@@ -32,12 +38,23 @@
           system = "x86_64-linux";
           users = [ "helyosis" ];
         };
+        hvv = lib.mkSystem {
+          hostname = "hvv";
+          system = "x86_64-linux";
+          users = [ "helyosis" ];
+        };
       };
       homeConfigurations = {
         "helyosis@xps" = lib.mkHome {
           username = "helyosis";
           system = "x86_64-linux";
           hostname = "xps";
+          stateVersion = "22.11";
+        };
+        "helyosis@hvv" = lib.mkHome {
+          username = "helyosis";
+          system = "x86_64-linux";
+          hostname = "hvv";
           stateVersion = "22.11";
         };
       };

@@ -20,9 +20,10 @@
 
   # Doom Emacs requirements
   home.packages = with pkgs; [
-    clang
+    clang_15
     emacsPgtk
     fd
     ripgrep
+    direnv
   ];
 }
