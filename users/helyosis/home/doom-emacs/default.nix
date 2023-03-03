@@ -1,4 +1,9 @@
 { config, pkgs, lib, ... }:
+let
+  my_emacs = (
+    (pkgs.emacsPackagesFor pkgs.emacsPgtk).emacsWithPackages (epkgs: [ epkgs.vterm ])
+  );
+in
 {
   # Install Doom Emacs from here: https://github.com/hlissner/doom-emacs
 
@@ -17,11 +22,18 @@
   '';
 
   services.emacs.enable = true;
+  services.emacs.package = my_emacs;
+
+  programs.emacs = {
+    enable = true;
+    package = my_emacs;
+  };
 
   # Doom Emacs requirements
   home.packages = with pkgs; [
-    clang_15
-    emacsPgtk
+    cmake
+    gnumake
+    libtool
     fd
     ripgrep
     direnv

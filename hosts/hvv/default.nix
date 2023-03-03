@@ -20,6 +20,7 @@
       device = "/dev/disk/by-uuid/f3ab9d44-2d07-4402-98df-7d8edf9eb95a";
       preLVM = true;
       allowDiscards = true;
+      crypttabExtraOpts = [ "tpm2-device=auto" ];
     };
   };
 
@@ -27,6 +28,10 @@
   # This is useful because I have an intel graphics card (A750) and driver support in
   # active developpement
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "iommu=pt"
+  ];
 
   networking.hostName = "hvv"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -112,7 +117,17 @@
     mokutil
     trousers
     tpm-tools
+
+    mesa
+    glslang # or shaderc
+    shaderc
+    vulkan-headers
+    vulkan-loader
+    vulkan-validation-layers # maybe
   ];
+
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

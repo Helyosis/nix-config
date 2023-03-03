@@ -6,5 +6,9 @@
     prismlauncher
     steamcmd
     steam-tui
+    heroic
+    lutris
+    wine
+    gamemode
   ];
 }

@@ -4,6 +4,7 @@
     ./doom-emacs
     ./custom-fonts
     ./gaming
+    ./python.nix
     inputs.homeage.homeManagerModules.homeage
   ];
 
@@ -38,7 +39,6 @@
     webcord
     age
     nextcloud-client
-    python310
     rust-analyzer
     rustc
     cargo
@@ -49,7 +49,7 @@
     javaPackages.junit_4_12
     jetbrains.idea-ultimate
     qmk
-    libclang
-    lutris
+    deluge
+    toybox
   ];
 }
