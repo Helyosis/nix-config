@@ -51,5 +51,6 @@
     qmk
     deluge
     toybox
+    chntpw
   ];
 }
