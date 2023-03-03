@@ -14,7 +14,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.kernelParams = [ "i915.force_probe=46a8" ];
   # Without this we get errors in dmesg on boot and hangs when shutting down.
   boot.blacklistedKernelModules = [ "psmouse" ];

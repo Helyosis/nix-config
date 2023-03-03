@@ -13,13 +13,4 @@
 
   services.udev.extraRules = builtins.readFile ./50-qmk.rules;
 
-  # Enable NTFS to read Windows partitions
-  boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/mnt/windows" =
-    {
-      device = "/dev/nvme0n1p4";
-      fsType = "ntfs3";
-      options = [ "rw" "uid=${builtins.toString config.users.users.helyosis.uid}"];
-    };
-
 }
