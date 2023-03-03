@@ -123,15 +123,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Enable WebDAV mounting.
-  services.davfs2.enable = true;
-
-  fileSystems = {
-    "/mnt/ssd" = {
-      device = "/dev/nvme0n1p3";
-    };
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
