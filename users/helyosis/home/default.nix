@@ -48,7 +48,11 @@
     lombok
     javaPackages.junit_4_12
     jetbrains.idea-ultimate
+    jetbrains.clion
+    libyamlcpp
+    cmake
     qmk
+    graphviz
     deluge
     coreutils-full
     chntpw

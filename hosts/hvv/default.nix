@@ -59,6 +59,14 @@
   services.xserver.desktopManager.plasma5.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
 
+  # Auto-login as helyosis.
+  # Not the most secure but as my disks are encryted, it's useless to not autologin.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "helyosis";
+
+  # https://nixos.org/manual/nixos/stable/#sec-x11--graphics-cards-intel
+  services.xserver.videoDrivers = [ "modesetting" ];
+
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
