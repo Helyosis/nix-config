@@ -12,5 +12,4 @@
   };
 
   services.udev.extraRules = builtins.readFile ./50-qmk.rules;
-
 }

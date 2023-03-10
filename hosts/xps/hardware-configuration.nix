@@ -14,12 +14,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/08a0df4e-b217-4130-974d-04fef64b0aaa";
+    { device = "/dev/disk/by-uuid/31ce6a7a-3786-457b-b38d-770d3d29eb36";
       fsType = "ext4";
     };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/2BFC-7AFA";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/734B-6967";
       fsType = "vfat";
     };
 
@@ -30,12 +30,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s13f0u1u3.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp165s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;# Touchpad goes over i2c.
-
 }
