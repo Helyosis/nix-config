@@ -7,7 +7,7 @@
     isNormalUser = true;
     home = "/home/helyosis";
     description = "Helyosis";
-    extraGroups = [ "networkmanager" "wheel" "tss" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" "docker" ];
     uid = 1000; # We pin the uids for reproducability (and also to reference them)
   };
 

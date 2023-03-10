@@ -50,7 +50,7 @@
     jetbrains.idea-ultimate
     qmk
     deluge
-    toybox
+    coreutils-full
     chntpw
   ];
 }

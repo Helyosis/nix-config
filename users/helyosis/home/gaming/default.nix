@@ -10,5 +10,8 @@
     lutris
     wine
     gamemode
+
+    # Use parsec to connect to desktop PC while on laptop
+    parsec-bin
   ];
 }
