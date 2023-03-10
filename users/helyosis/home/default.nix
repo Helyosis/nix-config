@@ -5,6 +5,7 @@
     ./custom-fonts
     ./gaming
     ./python.nix
+    ./ctf.nix
     inputs.homeage.homeManagerModules.homeage
   ];
 
@@ -23,12 +24,12 @@
     # "activation" if system doesn't support systemd
     installationType = "systemd";
 
-     # file."nextcloud" = {
-       # Path to encrypted file tracked by the git repository
-       # source = ./secrets/netrc.age;
-       # symlinks = [ "~/.netrc" ];
-       # copies = [ "${config.xdg.configHome}/no-symlink-support/secretkey.json" ];
-     # };
+    # file."nextcloud" = {
+    # Path to encrypted file tracked by the git repository
+    # source = ./secrets/netrc.age;
+    # symlinks = [ "~/.netrc" ];
+    # copies = [ "${config.xdg.configHome}/no-symlink-support/secretkey.json" ];
+    # };
   };
 
   fonts.fontconfig.enable = true;

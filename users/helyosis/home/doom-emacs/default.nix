@@ -38,5 +38,6 @@ in
     ripgrep
     direnv
     pyright
+    rnix-lsp
   ];
 }
