@@ -37,5 +37,6 @@ in
     fd
     ripgrep
     direnv
+    pyright
   ];
 }
