@@ -5,7 +5,6 @@
 
   # Quiet boot with plymouth - supports LUKS passphrase entry if needed
   boot.kernelParams = [
-    "quiet"
     "rd.systemd.show_status=false"
     "rd.udev.log_level=3"
     "udev.log_priority=3"
@@ -35,30 +34,4 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
-
-  # TPM for unlocking LUKS
-  #
-  # TPM kernel module must be enabled for initrd. Device driver is viewable via the command:
-  # sudo systemd-cryptenroll --tpm2-device=list
-  # And added to a device's configuration:
-  boot.initrd.kernelModules = [ "tpm_crb" ];
-  boot.initrd.availableKernelModules = [ "tpm_crb" ];
-  #
-  # Must be enabled by hand - e.g.
-  # sudo systemd-cryptenroll --wipe-slot=tpm2 /dev/nvme0n1p3 --tpm2-device=auto --tpm2-pcrs=0+2+7
-  #
-  security.tpm2.enable = true;
-  security.tpm2.tctiEnvironment.enable = true;
-
-  # No swap is configured at present :(
-  #services.logind = {
-  #  lidSwitch = "suspend-then-hibernate";
-  #  extraConfig = ''
-  #    HandlePowerKey=suspend-then-hibernate
-  #    IdleAction=suspend-then-hibernate
-  #    IdleActionSec=2m
-  #  '';
-  #};
-  #systemd.sleep.extraConfig = "HibernateDelaySec=30min";
-
 }

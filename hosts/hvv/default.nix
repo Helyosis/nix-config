@@ -20,7 +20,6 @@
       device = "/dev/disk/by-uuid/f3ab9d44-2d07-4402-98df-7d8edf9eb95a";
       preLVM = true;
       allowDiscards = true;
-      crypttabExtraOpts = [ "tpm2-device=auto" ];
     };
   };
 
@@ -28,10 +27,6 @@
   # This is useful because I have an intel graphics card (A750) and driver support in
   # active developpement
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "intel_iommu=on"
-    "iommu=pt"
-  ];
 
   networking.hostName = "hvv"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -63,9 +58,6 @@
   # Not the most secure but as my disks are encryted, it's useless to not autologin.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "helyosis";
-
-  # https://nixos.org/manual/nixos/stable/#sec-x11--graphics-cards-intel
-  services.xserver.videoDrivers = [ "modesetting" ];
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
