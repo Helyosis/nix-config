@@ -1,11 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, unstable-pkgs, inputs, lib, ... }:
 {
   imports = [
     ./doom-emacs
     ./custom-fonts
     ./gaming
     ./python.nix
-    ./ctf.nix
     inputs.homeage.homeManagerModules.homeage
   ];
 
@@ -14,6 +13,9 @@
     enable = true;
     userName = "Aloïs Colléaux-Le Chêne";
     userEmail = "alois.colleaux-le-chene@epita.fr";
+    extraConfig = {
+      pull.rebase = true;
+    };
   };
 
   # Manage secrets through Homeage (https://github.com/jordanisaacs/homeage)
@@ -37,7 +39,7 @@
   home.packages = with pkgs; [
     nerdfonts
     firefox
-    webcord
+    unstable-pkgs.webcord
     age
     nextcloud-client
     rust-analyzer
@@ -55,7 +57,11 @@
     qmk
     graphviz
     deluge
-    coreutils-full
     chntpw
+    file
+    wezterm
+
+    toybox
+    (pkgs.lib.hiPrio coreutils-full)
   ];
 }
