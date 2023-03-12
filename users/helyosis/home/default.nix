@@ -61,7 +61,8 @@
     file
     wezterm
 
-    toybox
-    (pkgs.lib.hiPrio coreutils-full)
+    (lib.setPrio 100 toybox) # Toybox looks to be outdated for many bins, we want it to have the lowest priority, to fill in any missing programs that do not need specifics features
+    coreutils-full
+    netcat-gnu
   ];
 }
