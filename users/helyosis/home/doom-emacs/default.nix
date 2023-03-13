@@ -37,7 +37,9 @@ in
     fd
     ripgrep
     direnv
+
     pyright
     rnix-lsp
+    libclang # for clangd
   ];
 }

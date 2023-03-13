@@ -34,6 +34,13 @@
     # };
   };
 
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      eval "$(direnv hook bash)"
+    '';
+  };
+
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
