@@ -45,6 +45,8 @@
 
   home.packages = with pkgs; [
     nerdfonts
+    cm_unicode
+
     firefox
     unstable-pkgs.webcord
     age
